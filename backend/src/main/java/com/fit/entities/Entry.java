@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.security.Timestamp;
+import java.time.Instant;
 
 @Entity
 public class Entry {
@@ -15,18 +15,18 @@ public class Entry {
     private String lastName;
     private String email;
     private String telephoneNo;
-    private Timestamp timestamp;
+    private Instant timestamp;
 
     public Entry() {
     }
 
-    public Entry(Long id, String firstName, String lastName, String email, String telephoneNo, Timestamp timestamp) {
+    public Entry(Long id, String firstName, String lastName, String email, String telephoneNo) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.telephoneNo = telephoneNo;
-        this.timestamp = timestamp;
+        this.timestamp = Instant.now();
     }
 
     public Long getId() {
@@ -69,11 +69,11 @@ public class Entry {
         this.telephoneNo = telephoneNo;
     }
 
-    public Timestamp getTimestamp() {
+    public Instant getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Timestamp timestamp) {
+    public void setTimestamp(Instant timestamp) {
         this.timestamp = timestamp;
     }
 }
