@@ -6,7 +6,7 @@
 </head>
 <body>
 <div>
-    <form action="/api/entry" method="post">
+    <form action="/api/entry" method="post" onsubmit="onSubmit()">
         <label for="firstName">First Name: </label>
         <input type="text" id="firstName" name="firstName"><br>
         <label for="lastName">Last Name: </label>
@@ -18,5 +18,20 @@
         <input type="submit" value="Submit">
     </form>
 </div>
+<script>
+    if( localStorage.getItem('firstName') != null) {
+        document.getElementById('firstName').value = localStorage.getItem('firstName');
+        document.getElementById('lastName').value = localStorage.getItem('lastName');
+        document.getElementById('email').value = localStorage.getItem('email');
+        document.getElementById('telephoneNo').value = localStorage.getItem('telephoneNo');
+    }
+
+    function onSubmit() {
+        localStorage.setItem('firstName', document.getElementById('firstName').value);
+        localStorage.setItem('lastName', document.getElementById('lastName').value);
+        localStorage.setItem('email', document.getElementById('email').value);
+        localStorage.setItem('telephoneNo', document.getElementById('telephoneNo').value);
+    }
+</script>
 </body>
 </html>
